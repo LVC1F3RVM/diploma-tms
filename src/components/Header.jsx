@@ -19,7 +19,7 @@ function Header(props) {
       <Grid item xs={2}>
         Logo
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} className={classes.resetPadding}>
         <AppBar position="static" className={classes.nav}>
           {routes.map((elem) => (
             <Link to={elem.path} key={elem.name}>

@@ -1,0 +1,79 @@
+import React, { Component } from "react";
+import TeamMember from "./TeamMember";
+
+const data = [
+  {
+    avatar:
+      "https://demo.themezy.com/system/resources/demo_themes/000/000/010//dummy/person-1.jpg",
+    name: "Sarah Stuart",
+    role: "Co-founder",
+    social: [
+      {
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        google: "https://google.com",
+        pinterest: "https://pinterest.com",
+      },
+    ],
+    id: "1",
+  },
+  {
+    avatar:
+      "https://demo.themezy.com/system/resources/demo_themes/000/000/010//dummy/person-2.jpg",
+    name: "John Doe",
+    role: "Managing Director",
+    social: [
+      {
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        google: "https://google.com",
+        pinterest: "https://pinterest.com",
+      },
+    ],
+    id: "2",
+  },
+  {
+    avatar:
+      "https://demo.themezy.com/system/resources/demo_themes/000/000/010//dummy/person-3.jpg",
+    name: "Jessica Branson",
+    role: "Reviewer",
+    social: [
+      {
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        google: "https://google.com",
+        pinterest: "https://pinterest.com",
+      },
+    ],
+    id: "3",
+  },
+  {
+    avatar:
+      "https://demo.themezy.com/system/resources/demo_themes/000/000/010//dummy/person-4.jpg",
+    name: "Sarah Stuart",
+    role: "Consultant",
+    social: [
+      {
+        facebook: "https://facebook.com",
+        twitter: "https://twitter.com",
+        google: "https://google.com",
+        pinterest: "https://pinterest.com",
+      },
+    ],
+    id: "4",
+  },
+];
+
+export class OurTeam extends Component {
+  render() {
+    return (
+      <div style={{ display: "flex" }}>
+        {data.map((elem) => (
+          <TeamMember person={elem} key={elem.id} />
+        ))}
+      </div>
+    );
+  }
+}
+
+export default OurTeam;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getShows } from "../../actions/shows";
 import { getPremieres } from "../../actions/premieres";
-import ShowsGallery from "./components/ShowsGallery";
+import ShowsGallery from "../../components/ShowsGallery";
 import { makeStyles } from "@material-ui/styles";
 // import { Button } from "@material-ui/core";
 // import { arrayFromNumber } from "./utils/index";
