@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getShows } from "../../actions/shows";
 import { getPremieres } from "../../actions/premieres";
 import ShowsGallery from "../../components/ShowsGallery";
 import { makeStyles } from "@material-ui/styles";
-// import { Button } from "@material-ui/core";
-// import { arrayFromNumber } from "./utils/index";
 import Premieres from "./components/Premieres";
 
 const useStyles = makeStyles({
@@ -16,39 +14,22 @@ const useStyles = makeStyles({
   },
 });
 
-// const pages = 12;
-
 function Home(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const shows = useSelector((state) => state.show.shows);
   useEffect(() => {
-    props.getShows(1);
-    props.getPremieres();
-  }, [props]);
-
-  // const handlePageChange = (page) => (e) => {
-  //   props.getShows(page);
-  // };
+    dispatch(getShows(1));
+    dispatch(getPremieres());
+  }, [dispatch]);
 
   return (
     <div className={classes.root}>
-      <ShowsGallery />
-      {/* <div>
-        {arrayFromNumber(pages)
-          .map((page) => page + 1)
-          .map((number) => (
-            <Button onClick={handlePageChange(number)}>{number}</Button>
-          ))}
-      </div> */}
+      <ShowsGallery shows={shows} />
+
       <Premieres />
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = (dispatch) => ({
-  getShows: (page) => dispatch(getShows(page)),
-  getPremieres: () => dispatch(getPremieres()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

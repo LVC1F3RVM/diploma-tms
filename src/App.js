@@ -36,7 +36,7 @@ function App() {
   return (
     <div className={classes.root}>
       <Header routes={routes}></Header>
-      <Paper>
+      <Paper elevation={3} rounded>
         <Switch>
           {routes.map((elem) => (
             <Route

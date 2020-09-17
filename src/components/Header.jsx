@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   nav: {
     flexDirection: "row",
+    padding: 10,
   },
 });
 
@@ -20,9 +21,14 @@ function Header(props) {
         Logo
       </Grid>
       <Grid item xs={6} className={classes.resetPadding}>
-        <AppBar position="static" className={classes.nav}>
+        <AppBar position="static" color="transparent" className={classes.nav}>
           {routes.map((elem) => (
-            <Link to={elem.path} key={elem.name}>
+            <Link
+              to={elem.path}
+              key={elem.name}
+              color="default"
+              underline="none"
+            >
               {elem.name}
             </Link>
           ))}

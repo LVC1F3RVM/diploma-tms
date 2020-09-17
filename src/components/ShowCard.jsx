@@ -7,9 +7,9 @@ const useStyles = makeStyles((theme) => ({
   showCard: ({ size }) => {
     const styles = {
       width: 255,
-      height: 295,
       marginBottom: 10,
       overflow: "hidden",
+      height: 450,
     };
     if (size === "sm") {
       return styles;
@@ -20,17 +20,25 @@ const useStyles = makeStyles((theme) => ({
       return styles;
     }
   },
-  image: {
-    transition: ".3s ease transform",
+  image: ({ isReviewsPage }) => ({
+    transition: isReviewsPage ? ".3s ease transform" : "none",
     "&:hover": {
-      transform: "scale(1.2)",
+      transform: isReviewsPage ? "scale(1.2)" : "none",
     },
-  },
+  }),
 }));
 
 function ShowCard(props) {
-  const { size = "sm", src, alt, id, title, description } = props;
-  const classes = useStyles({ size });
+  const {
+    size = "sm",
+    src,
+    alt,
+    id,
+    title,
+    description,
+    isReviewsPage,
+  } = props;
+  const classes = useStyles({ size, isReviewsPage });
 
   return (
     <div className={classes.showCard}>
@@ -50,6 +58,7 @@ ShowCard.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
+  isReviewsPage: PropTypes.bool.isRequired,
 };
 
 export default ShowCard;
