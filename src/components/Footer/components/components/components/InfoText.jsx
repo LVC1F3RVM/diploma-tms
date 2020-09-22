@@ -3,7 +3,7 @@ import React from "react";
 function InfoText({ info }) {
   return (
     <div>
-      <p>{info}</p>
+      <p data-testid="Info">{info}</p>
     </div>
   );
 }

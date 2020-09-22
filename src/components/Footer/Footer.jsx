@@ -121,7 +121,7 @@ function Footer() {
     <div>
       <Grid container>
         {footerData.map((elem) => (
-          <Grid item md={2} sm={12}>
+          <Grid item md={2} sm={12} key={elem.title}>
             <FooterPage title={elem.title} info={elem.info} />
           </Grid>
         ))}
