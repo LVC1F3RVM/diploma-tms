@@ -8,6 +8,10 @@ const useStyles = makeStyles({
   nav: {
     flexDirection: "row",
     padding: 10,
+    color: "gray",
+  },
+  menu_btn: {
+    textDecoration: "none",
   },
 });
 
@@ -21,14 +25,9 @@ function Header(props) {
         Logo
       </Grid>
       <Grid item xs={6} className={classes.resetPadding}>
-        <AppBar position="static" color="transparent" className={classes.nav}>
+        <AppBar position="static" className={classes.nav}>
           {routes.map((elem) => (
-            <Link
-              to={elem.path}
-              key={elem.name}
-              color="default"
-              underline="none"
-            >
+            <Link to={elem.path} key={elem.name} className={classes.menu_btn}>
               {elem.name}
             </Link>
           ))}

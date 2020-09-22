@@ -5,6 +5,24 @@ import ShowsGallery from "../../components/ShowsGallery";
 import { Pagination } from "@material-ui/lab";
 import { Select, MenuItem } from "@material-ui/core";
 
+import { makeStyles } from "@material-ui/core/styles";
+import background from "../../images/background.jpg";
+
+const useStyles = makeStyles({
+  movieReviewsCenter: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "0px 0px 0px 75px",
+    backgroundImage: `url(${background})`,
+  },
+  pagination: {
+    display: "flex",
+    justifyContent: "center",
+    background: "#bec1c8",
+  },
+});
+
 const ALL_GENRES = "All";
 const ALL_YEARS = "All";
 
@@ -26,7 +44,7 @@ function MovieReviews() {
 
   useEffect(() => {
     if (shows) {
-      const genresSet = new Set(shows.flatMap((show) => show.genres));
+      const genresSet = new Set(shows.flatMap((show) => show.genres)); // По жанрам
       setGenres([...genresSet.values()]);
       setCount(Math.ceil(shows.length / showsPerPage));
     }
@@ -47,8 +65,17 @@ function MovieReviews() {
 
   useEffect(() => {
     if (shows) {
-      const yearsSet = new Set(shows.flatMap((show) => show.premiered));
-      setYears([...yearsSet.values()]);
+      const yearsSet = shows.flatMap((show) => show.premiered); // По годам
+      const newArrDate = [];
+      for (let i = 0; i < yearsSet.length; i++) {
+        if (yearsSet[i]) {
+          let date = yearsSet[i];
+          var newData = date.substring(0, 4);
+        }
+        newArrDate.push(newData);
+      }
+      const newYearsSet = new Set(newArrDate);
+      setYears([...newYearsSet.values()]);
       setCount(Math.ceil(shows.length / showsPerPage));
     }
   }, [dispatch, shows]);
@@ -56,15 +83,19 @@ function MovieReviews() {
   useEffect(() => {
     if (shows) {
       if (selectedYear !== ALL_YEARS) {
-        const filteredShowsPerYear = shows.filter((show) =>
-          show.premiered.includes(selectedYear)
-        );
+        const includedShowsPerYear = (show) => {
+          if (show.premiered) {
+            var newShowDate = show.premiered.substring(0, 4);
+            return newShowDate.includes(selectedYear);
+          }
+        };
+        const filteredShowsPerYear = shows.filter(includedShowsPerYear);
         dispatch(setSearchedShows(filteredShowsPerYear));
       } else {
         dispatch(setSearchedShows(shows));
       }
     }
-  }, [dispatch, years, selectedYear, shows]);
+  }, [dispatch, selectedYear, shows]);
 
   const handleChange = (event, page) => {
     setFrom((page - 1) * showsPerPage);
@@ -77,6 +108,9 @@ function MovieReviews() {
   const handleSelectChangePerYear = (event) => {
     setSelectedYear(event.target.value);
   };
+
+  const classes = useStyles();
+
   return (
     <div>
       <Select value={selectedGenre} onChange={handleSelectChange}>

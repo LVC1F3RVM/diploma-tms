@@ -50,7 +50,7 @@ const data = [
   {
     avatar:
       "https://demo.themezy.com/system/resources/demo_themes/000/000/010//dummy/person-4.jpg",
-    name: "Sarah Stuart",
+    name: "Matt Olson",
     role: "Consultant",
     social: [
       {
