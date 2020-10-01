@@ -24,10 +24,10 @@ const useStyles = makeStyles({
 
 const routes = [
   { path: "/", name: "Home", component: Home },
-  { path: "/about", name: About.name, component: About },
-  { path: "/join-us", name: JoinUs.name, component: JoinUs },
-  { path: "/contacts", name: Contacts.name, component: Contacts },
-  { path: "/movie-reviews", name: MovieReviews.name, component: MovieReviews },
+  { path: "/about", name: "About", component: About },
+  { path: "/movie-reviews", name: "Movie Reviews", component: MovieReviews },
+  { path: "/join-us", name: "Join Us", component: JoinUs },
+  { path: "/contacts", name: "Contacts", component: Contacts },
 ];
 
 function App() {
