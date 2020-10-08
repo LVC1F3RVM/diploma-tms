@@ -17,8 +17,18 @@ library.add(fab, faCheckSquare, faCoffee);
 
 const useStyles = makeStyles({
   root: {
+    "& > *": {
+      boxSizing: "border-box",
+    },
     backgroundImage: `url(${background})`,
-    height: "100vh",
+    backgroundRepeat: "no-repeat",
+  },
+  paper_styles: {
+    padding: 30,
+    margin: "50px 200px 70px 200px",
+  },
+  header_styles: {
+    boxShadow: "none",
   },
 });
 
@@ -35,8 +45,8 @@ function App() {
 
   return (
     <div className={classes.root}>
-      <Header routes={routes}></Header>
-      <Paper elevation={3} rounded>
+      <Header routes={routes} className={classes.header_styles}></Header>
+      <Paper elevation={5} rounded className={classes.paper_styles}>
         <Switch>
           {routes.map((elem) => (
             <Route

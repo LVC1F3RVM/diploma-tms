@@ -67,7 +67,7 @@ const data = [
 export class OurTeam extends Component {
   render() {
     return (
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         {data.map((elem) => (
           <TeamMember person={elem} key={elem.id} />
         ))}

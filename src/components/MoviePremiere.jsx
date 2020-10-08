@@ -20,7 +20,7 @@ function MoviePremiere(props) {
   const { premiereMonth, description, movies } = props;
   return (
     <article>
-      <Typography variant="h2" component="h2">
+      <Typography variant="h4" component="h4">
         {getMonthName(premiereMonth.getMonth())} premiere
       </Typography>
       <Typography component="p">{description}</Typography>

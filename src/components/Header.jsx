@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   nav: {
     flexDirection: "row",
-    padding: 10,
     background: "white",
     backgroundColor: "transparent",
+    boxShadow: "none",
     "& > *": {
       color: "grey",
       backgroundColor: "white",
@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     padding: "0px 20px 0px 20px",
   },
   btn_grp: {
-    padding: 10,
+    padding: 8,
+    marginTop: 50,
   },
 });
 

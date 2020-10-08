@@ -4,7 +4,7 @@ import FooterPageInfo from "./components/FooterPageInfo";
 function FooterPage(props) {
   return (
     <div>
-      <h1>{props.title}</h1>
+      <h3>{props.title}</h3>
       <FooterPageInfo info={props.info}></FooterPageInfo>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import FooterPage from "./components/FooterPage";
+import { makeStyles } from "@material-ui/core/styles";
 
 const footerData = [
   {
@@ -116,9 +117,19 @@ const footerData = [
   },
 ];
 
+const useStyles = makeStyles({
+  root: {
+    color: "grey",
+    margin: "0px 220px 0px 220px",
+    paddingBottom: "20px",
+  },
+});
+
 function Footer() {
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.root}>
       <Grid container>
         {footerData.map((elem) => (
           <Grid item md={2} sm={12} key={elem.title}>
@@ -126,7 +137,7 @@ function Footer() {
           </Grid>
         ))}
       </Grid>
-      <p>
+      <p style={{ textAlign: "center" }}>
         Copyright 2014 Company name, Designed by Themezy. All rights reserved
       </p>
     </div>

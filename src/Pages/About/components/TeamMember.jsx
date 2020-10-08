@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const useStyles = makeStyles((theme) => ({
   large: {
-    width: theme.spacing(39),
-    height: theme.spacing(39),
+    width: theme.spacing(28),
+    height: theme.spacing(28),
   },
   flex: {
     display: "flex",
@@ -19,7 +19,7 @@ function TeamMember({ person }) {
   const soialForMap = Object.entries(social);
 
   return (
-    <div>
+    <div className={classes.large}>
       <Avatar alt={person.name} src={person.avatar} className={classes.large} />
       <h3>{person.name}</h3>
       <span>{person.role}</span>
