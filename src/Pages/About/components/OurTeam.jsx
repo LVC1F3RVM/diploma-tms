@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import TeamMember from "./TeamMember";
 
 const data = [
@@ -64,16 +64,19 @@ const data = [
   },
 ];
 
-export class OurTeam extends Component {
-  render() {
-    return (
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        {data.map((elem) => (
-          <TeamMember person={elem} key={elem.id} />
-        ))}
-      </div>
-    );
-  }
+function OurTeam() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
+      {data.map((elem) => (
+        <TeamMember person={elem} key={elem.id} />
+      ))}
+    </div>
+  );
 }
 
 export default OurTeam;

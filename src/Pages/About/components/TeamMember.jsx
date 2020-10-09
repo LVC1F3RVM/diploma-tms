@@ -10,6 +10,12 @@ const useStyles = makeStyles((theme) => ({
   },
   flex: {
     display: "flex",
+    padding: "0px",
+  },
+  team_member_container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 }));
 
@@ -19,7 +25,7 @@ function TeamMember({ person }) {
   const soialForMap = Object.entries(social);
 
   return (
-    <div className={classes.large}>
+    <div className={classes.team_member_container}>
       <Avatar alt={person.name} src={person.avatar} className={classes.large} />
       <h3>{person.name}</h3>
       <span>{person.role}</span>

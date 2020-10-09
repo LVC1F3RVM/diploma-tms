@@ -119,7 +119,6 @@ const footerData = [
 
 const useStyles = makeStyles({
   root: {
-    color: "grey",
     margin: "0px 220px 0px 220px",
     paddingBottom: "20px",
   },

@@ -6,7 +6,6 @@ const style = {
   position: "relative",
   width: "50%",
   height: "50%",
-  paddingTop: "100px",
 };
 
 class Contacts extends Component {
