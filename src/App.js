@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
   },
   paper_styles: {
-    padding: 30,
+    padding: "3em",
     margin: "50px 200px 70px 200px",
   },
   header_styles: {

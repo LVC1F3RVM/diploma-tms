@@ -19,7 +19,6 @@ const useStyles = makeStyles({
   pagination: {
     display: "flex",
     justifyContent: "center",
-    background: "#bec1c8",
   },
 });
 
@@ -140,6 +139,7 @@ function MovieReviews() {
         variant="outlined"
         onChange={handleChange}
         shape="rounded"
+        className={classes.pagination}
       />
     </div>
   );

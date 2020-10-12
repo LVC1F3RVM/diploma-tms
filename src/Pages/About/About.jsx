@@ -6,7 +6,7 @@ function About() {
   return (
     <div>
       <AboutUsText />
-      Our Team <OurTeam />
+      <OurTeam />
     </div>
   );
 }

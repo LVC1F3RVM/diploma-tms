@@ -60,7 +60,7 @@ function Header(props) {
     <Grid container  className={classes.header_styles}>
       <Grid container className={classes.container_styles} >
         <Grid item xs={3} >
-          <a href="/"  className={classes.logo_copy}>
+          <a href="#"  className={classes.logo_copy}>
             <img src={logo} alt="Logo" id="branding" />
             <Grid container direction="column" className={classes.logo_copy_text}>
               <h1 className={classes.site_title}>Company Name</h1>
