@@ -26,6 +26,7 @@ const useStyles = makeStyles({
   paper_styles: {
     padding: "3em",
     margin: "50px 200px 70px 200px",
+    color: "#84878d",
   },
   header_styles: {
     boxShadow: "none",

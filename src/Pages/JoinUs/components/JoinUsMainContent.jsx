@@ -16,12 +16,11 @@ const useStyles = makeStyles((theme) => ({
     width: "115px",
     height: "40px",
     background: "#ffaa3c",
-    padding: "10px",
+    paddingTop: "5px",
     textAlign: "center",
     borderRadius: "5px",
     color: "#92601e",
     appearance: "button",
-
     lineHeight: "25px",
     textDecoration: "none",
     transition: ".3s ease",

@@ -14,8 +14,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     margin: "0px 205px 0px 205px",
-    padding: "0px 10px 0 10px"
-    
+    padding: "0px 10px 0 10px",
   },
   logo_copy: {
     display: "flex",
@@ -23,12 +22,12 @@ const useStyles = makeStyles({
     textDecoration: "none",
   },
   logo_copy_text: {
-    color: "white"
+    color: "white",
   },
   site_title: {
     margin: 0,
     textTransform: "uppercase",
-    fontSize: "1em"
+    fontSize: "1em",
   },
   nav: {
     display: "flex",
@@ -42,13 +41,12 @@ const useStyles = makeStyles({
       backgroundColor: "white",
     },
   },
-    menu_btn: {
+  menu_btn: {
     textDecoration: "none",
     padding: "0px 15px 0px 15px",
   },
   btn_grp: {
-    padding: 10,
-    
+    padding: "10px 0 10px 0",
   },
 });
 
@@ -57,12 +55,16 @@ function Header(props) {
   const classes = useStyles();
 
   return (
-    <Grid container  className={classes.header_styles}>
-      <Grid container className={classes.container_styles} >
-        <Grid item xs={3} >
-          <a href="#"  className={classes.logo_copy}>
+    <Grid container className={classes.header_styles}>
+      <Grid container className={classes.container_styles}>
+        <Grid item xs={3}>
+          <a href="#" className={classes.logo_copy}>
             <img src={logo} alt="Logo" id="branding" />
-            <Grid container direction="column" className={classes.logo_copy_text}>
+            <Grid
+              container
+              direction="column"
+              className={classes.logo_copy_text}
+            >
               <h1 className={classes.site_title}>Company Name</h1>
               <small>Tagline goes here</small>
             </Grid>
@@ -76,7 +78,11 @@ function Header(props) {
               aria-label="contained primary button group"
             >
               {routes.map((elem) => (
-                <Link to={elem.path} key={elem.name} className={classes.menu_btn}>
+                <Link
+                  to={elem.path}
+                  key={elem.name}
+                  className={classes.menu_btn}
+                >
                   {elem.name}
                 </Link>
               ))}
