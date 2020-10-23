@@ -1,15 +1,24 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import figure from "../../../images/figure.jpg";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
 function AboutUsText() {
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item md={4}>
           <img src={figure} alt="Popcorn" id="popcorn" />
         </Grid>
-        <Grid item md={8}>
+        <Grid item xs={10} md={8}>
           <h3>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium totam.
@@ -31,7 +40,7 @@ function AboutUsText() {
         </Grid>
         <Grid container spacing={4} row>
           <Grid item container>
-            <Grid item md={9} spacing={4}>
+            <Grid item xs={10} md={9} spacing={4}>
               <h2>Vision & Misssion</h2>
               <p>
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -53,7 +62,7 @@ function AboutUsText() {
                 ducimus qui blanditiis praesentium voluptatum atque.
               </p>
             </Grid>
-            <Grid item md={3} spacing={4}>
+            <Grid item xs={10} md={3} spacing={4}>
               <h2>Useful Links</h2>
               <ul>
                 <li>

@@ -6,6 +6,7 @@ import {
   TextareaAutosize,
   Button,
 } from "@material-ui/core";
+import CreateIcon from "@material-ui/icons/Create";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Form = (props) => {
@@ -33,9 +34,10 @@ const Form = (props) => {
         value={values.name}
         name="name"
         onBlur={handleBlur}
+        placeholder="name... "
         startAdornment={
           <InputAdornment position="start">
-            <FontAwesomeIcon icon={["far", "user"]}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={["far", "user"]} />
           </InputAdornment>
         }
       />
@@ -45,9 +47,10 @@ const Form = (props) => {
         value={values.email}
         name="email"
         onBlur={handleBlur}
+        placeholder="email... "
         startAdornment={
           <InputAdornment position="start">
-            <FontAwesomeIcon icon={["fas", "envelope"]}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={["fas", "envelope"]} />
           </InputAdornment>
         }
       />
@@ -58,20 +61,29 @@ const Form = (props) => {
         value={values.url}
         onBlur={handleBlur}
         name="url"
+        placeholder="website... "
         startAdornment={
           <InputAdornment position="start">
-            <FontAwesomeIcon icon={["fas", "globe"]}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={["fas", "globe"]} />
           </InputAdornment>
         }
       />
       <TextareaAutosize
+        id="input-with-icon-textfield"
         onBlur={handleBlur}
         name="message"
         onChange={handleChange}
         value={values.message}
         aria-label="minimum height"
-        rowsMin={3}
-        placeholder="Minimum 3 rows"
+        rowsMin={7}
+        placeholder="message... "
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <CreateIcon />
+            </InputAdornment>
+          ),
+        }}
       />
       <Button onClick={handleSubmit} disabled={isErrors && touched.email}>
         {" "}

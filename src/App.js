@@ -1,19 +1,21 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-
 import { makeStyles } from "@material-ui/core/styles";
+import { Paper } from "@material-ui/core";
 
 import background from "./images/background.jpg";
 
 import { Home, About, JoinUs, Contacts, MovieReviews, Show } from "./Pages";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
-import { Paper } from "@material-ui/core";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { faCheckSquare, faCoffee } from "@fortawesome/free-solid-svg-icons";
+import Breadcrumbs from './components/BreadCrumbs';
 
-library.add(fab, faCheckSquare, faCoffee);
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee, faEnvelope, faGlobe, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { far, faUser } from '@fortawesome/free-regular-svg-icons';
+
+library.add(fab, far, faCheckSquare, faCoffee, faUser, faEnvelope, faGlobe, faPencilAlt);
 
 const useStyles = makeStyles({
   root: {
@@ -48,6 +50,7 @@ function App() {
     <div className={classes.root}>
       <Header routes={routes} className={classes.header_styles}></Header>
       <Paper elevation={5} rounded className={classes.paper_styles}>
+        <Breadcrumbs></Breadcrumbs>
         <Switch>
           {routes.map((elem) => (
             <Route
