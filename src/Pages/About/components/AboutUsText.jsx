@@ -6,6 +6,10 @@ import figure from "../../../images/figure.jpg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    flexWrap: "wrap",
+  },
+  figure_styles: {
+    margin: 0,
   },
 }));
 
@@ -15,8 +19,10 @@ function AboutUsText() {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item md={4}>
-          <img src={figure} alt="Popcorn" id="popcorn" />
+        <Grid item xs={8} md={4}>
+          <figure className={classes.figure_styles}>
+            <img src={figure} alt="Popcorn" id="popcorn" />
+          </figure>
         </Grid>
         <Grid item xs={10} md={8}>
           <h3>

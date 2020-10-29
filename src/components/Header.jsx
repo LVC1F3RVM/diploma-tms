@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    flexGrow: 1,
+    flexWrap: "wrap",
+  },
   header_styles: {
     paddingTop: "50px",
   },
@@ -55,42 +62,44 @@ function Header(props) {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.header_styles}>
-      <Grid container className={classes.container_styles}>
-        <Grid item xs={3}>
-          <a href="#" className={classes.logo_copy}>
-            <img src={logo} alt="Logo" id="branding" />
-            <Grid
-              container
-              direction="column"
-              className={classes.logo_copy_text}
-            >
-              <h1 className={classes.site_title}>Company Name</h1>
-              <small>Tagline goes here</small>
-            </Grid>
-          </a>
-        </Grid>
-        <Grid item xs={5} className={classes.resetPadding}>
-          <AppBar position="static" className={classes.nav}>
-            <ButtonGroup
-              variant="contained"
-              className={classes.btn_grp}
-              aria-label="contained primary button group"
-            >
-              {routes.map((elem) => (
-                <Link
-                  to={elem.path}
-                  key={elem.name}
-                  className={classes.menu_btn}
-                >
-                  {elem.name}
-                </Link>
-              ))}
-            </ButtonGroup>
-          </AppBar>
+    <div className={classes.root}>
+      <Grid container className={classes.header_styles}>
+        <Grid container className={classes.container_styles}>
+          <Grid item xs={4} md={3}>
+            <a href="#" className={classes.logo_copy}>
+              <img src={logo} alt="Logo" id="branding" />
+              <Grid
+                container
+                direction="column"
+                className={classes.logo_copy_text}
+              >
+                <h1 className={classes.site_title}>Company Name</h1>
+                <small>Tagline goes here</small>
+              </Grid>
+            </a>
+          </Grid>
+          <Grid item xs={8} md={5} className={classes.resetPadding}>
+            <AppBar position="static" className={classes.nav}>
+              <ButtonGroup
+                variant="contained"
+                className={classes.btn_grp}
+                aria-label="contained primary button group"
+              >
+                {routes.map((elem) => (
+                  <Link
+                    to={elem.path}
+                    key={elem.name}
+                    className={classes.menu_btn}
+                  >
+                    {elem.name}
+                  </Link>
+                ))}
+              </ButtonGroup>
+            </AppBar>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 }
 

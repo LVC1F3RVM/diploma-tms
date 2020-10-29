@@ -8,8 +8,8 @@ body {
   align-items: center;
   margin: 0;
   font-size: 15px;
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-weight: 300;
   color: #84878d;
   background-color: #131a20;
 }

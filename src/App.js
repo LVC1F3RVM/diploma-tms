@@ -19,6 +19,7 @@ library.add(fab, far, faCheckSquare, faCoffee, faUser, faEnvelope, faGlobe, faPe
 
 const useStyles = makeStyles({
   root: {
+    flexGrow: 1,
     "& > *": {
       boxSizing: "border-box",
     },
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
   },
   paper_styles: {
-    padding: "3em",
+    padding: "2em",
     margin: "50px 200px 70px 200px",
     color: "#84878d",
   },

@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const useStyles = makeStyles((theme) => ({
   large: {
-    width: theme.spacing(28),
-    height: theme.spacing(28),
+    width: theme.spacing(29),
+    height: theme.spacing(29),
+    margin: "0px 12.5px 30px 12.5px",
+  },
+  reset_margin: {
+    margin: 0,
   },
   flex: {
     display: "flex",
@@ -16,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    padding: "0px 15px 0px 15px",
   },
 }));
 
@@ -27,8 +32,8 @@ function TeamMember({ person }) {
   return (
     <div className={classes.team_member_container}>
       <Avatar alt={person.name} src={person.avatar} className={classes.large} />
-      <h3>{person.name}</h3>
-      <span>{person.role}</span>
+      <h3 className={classes.reset_margin}>{person.name}</h3>
+      <span className={classes.reset_margin}>{person.role}</span>
       <ul className={classes.flex}>
         {soialForMap.map(([name, link]) => (
           <li className={classes.flex}>
