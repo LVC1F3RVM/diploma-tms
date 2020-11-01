@@ -15,7 +15,7 @@ function About() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <AboutUsText />
       <OurTeam />
     </div>

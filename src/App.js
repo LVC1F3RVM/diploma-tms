@@ -2,13 +2,11 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
-
-import background from "./images/background.jpg";
+import { Grid } from "@material-ui/core";
 
 import { Home, About, JoinUs, Contacts, MovieReviews, Show } from "./Pages";
 import Header from "./components/Header";
 import Footer from "./components/Footer/Footer";
-import Breadcrumbs from './components/BreadCrumbs';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -18,21 +16,20 @@ import { far, faUser } from '@fortawesome/free-regular-svg-icons';
 library.add(fab, far, faCheckSquare, faCoffee, faUser, faEnvelope, faGlobe, faPencilAlt);
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
+  site_content: {
+    maxWidth: "auto",
+  },
+  container: {
+    marginRight: "auto",
+    marginLeft: "auto",
+    
     "& > *": {
-      boxSizing: "border-box",
+      zoom: 1,
     },
-    backgroundImage: `url(${background})`,
-    backgroundRepeat: "no-repeat",
   },
   paper_styles: {
     padding: "2em",
-    margin: "50px 200px 70px 200px",
     color: "#84878d",
-  },
-  header_styles: {
-    boxShadow: "none",
   },
 });
 
@@ -48,10 +45,20 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Header routes={routes} className={classes.header_styles}></Header>
+    <div>
+      <Grid className={classes.site_content}>
+      <Header routes={routes}></Header>
+      <Grid
+        container
+        alignContent="center"
+        xs={9}
+        sm={11}
+        md={11}
+        lg={9}
+        xl={6}
+        className={classes.container}
+      >
       <Paper elevation={5} rounded className={classes.paper_styles}>
-        <Breadcrumbs></Breadcrumbs>
         <Switch>
           {routes.map((elem) => (
             <Route
@@ -66,7 +73,9 @@ function App() {
           <Route> 404 not found </Route>
         </Switch>
       </Paper>
+      </Grid>
       <Footer></Footer>
+      </Grid>
     </div>
   );
 }

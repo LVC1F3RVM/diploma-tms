@@ -18,7 +18,7 @@ function AboutUsText() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item xs={8} md={4}>
           <figure className={classes.figure_styles}>
             <img src={figure} alt="Popcorn" id="popcorn" />

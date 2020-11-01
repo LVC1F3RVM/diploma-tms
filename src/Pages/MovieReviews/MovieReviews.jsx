@@ -6,7 +6,6 @@ import { Pagination } from "@material-ui/lab";
 import { Select, MenuItem } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
-import background from "../../images/background.jpg";
 
 const useStyles = makeStyles({
   movieReviewsCenter: {
@@ -14,7 +13,6 @@ const useStyles = makeStyles({
     flexDirection: "column",
     alignItems: "center",
     padding: "0px 0px 0px 75px",
-    backgroundImage: `url(${background})`,
   },
   pagination: {
     display: "flex",

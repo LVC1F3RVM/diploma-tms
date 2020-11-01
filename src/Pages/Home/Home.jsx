@@ -3,19 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getShows } from "../../actions/shows";
 import { getPremieres } from "../../actions/premieres";
 import ShowsGallery from "../../components/ShowsGallery";
-import { makeStyles } from "@material-ui/styles";
 import Premieres from "./components/Premieres";
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-});
-
 function Home(props) {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const shows = useSelector((state) => state.show.shows);
   useEffect(() => {
@@ -24,7 +14,7 @@ function Home(props) {
   }, [dispatch]);
 
   return (
-    <div className={classes.root}>
+    <div>
       <ShowsGallery shows={shows} />
 
       <Premieres />

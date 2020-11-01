@@ -7,21 +7,19 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 const useStyles = makeStyles({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    flexGrow: 1,
-    flexWrap: "wrap",
+  site_header: {
+    padding: "50px 0",
+    zoom: 1,
   },
-  header_styles: {
-    paddingTop: "50px",
-  },
-  container_styles: {
-    display: "flex",
+  container: {
+    marginRight: "auto",
+    marginLeft: "auto",
+    paddingLeft: "15px",
+    paddingRight: "15px",
     justifyContent: "space-between",
-    margin: "0px 205px 0px 205px",
-    padding: "0px 10px 0 10px",
+    "& > *": {
+      zoom: 1,
+    },
   },
   logo_copy: {
     display: "flex",
@@ -62,41 +60,44 @@ function Header(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container className={classes.header_styles}>
-        <Grid container className={classes.container_styles}>
-          <Grid item xs={4} md={3}>
-            <a href="#" className={classes.logo_copy}>
-              <img src={logo} alt="Logo" id="branding" />
-              <Grid
-                container
-                direction="column"
-                className={classes.logo_copy_text}
-              >
-                <h1 className={classes.site_title}>Company Name</h1>
-                <small>Tagline goes here</small>
-              </Grid>
-            </a>
-          </Grid>
-          <Grid item xs={8} md={5} className={classes.resetPadding}>
-            <AppBar position="static" className={classes.nav}>
-              <ButtonGroup
-                variant="contained"
-                className={classes.btn_grp}
-                aria-label="contained primary button group"
-              >
-                {routes.map((elem) => (
-                  <Link
-                    to={elem.path}
-                    key={elem.name}
-                    className={classes.menu_btn}
-                  >
-                    {elem.name}
-                  </Link>
-                ))}
-              </ButtonGroup>
-            </AppBar>
-          </Grid>
+    <div className={classes.site_header}>
+      <Grid
+        container
+        alignContent="center"
+        xs={9}
+        sm={11}
+        md={11}
+        lg={9}
+        xl={6}
+        className={classes.container}
+      >
+        <Grid item>
+          <a href="#" className={classes.logo_copy}>
+            <img src={logo} alt="Logo" id="branding" />
+            <Grid direction="column" className={classes.logo_copy_text}>
+              <h1 className={classes.site_title}>Company Name</h1>
+              <small>Tagline goes here</small>
+            </Grid>
+          </a>
+        </Grid>
+        <Grid item className={classes.resetPadding}>
+          <AppBar position="static" className={classes.nav}>
+            <ButtonGroup
+              variant="contained"
+              className={classes.btn_grp}
+              aria-label="contained primary button group"
+            >
+              {routes.map((elem) => (
+                <Link
+                  to={elem.path}
+                  key={elem.name}
+                  className={classes.menu_btn}
+                >
+                  {elem.name}
+                </Link>
+              ))}
+            </ButtonGroup>
+          </AppBar>
         </Grid>
       </Grid>
     </div>

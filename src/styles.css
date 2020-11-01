@@ -1,17 +1,31 @@
-* {
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
 }
 body {
+  background-color: #131a20;
+  background-image: url(images/background.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  color: #84878d;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-size: 15px;
-  font-family: "Roboto", "Open Sans", sans-serif;
-  font-weight: 300;
-  color: #84878d;
-  background-color: #131a20;
 }
 #branding {
   width: 42px;
@@ -20,6 +34,7 @@ body {
 }
 #popcorn {
   max-width: 100%;
+  border: 0;
 }
 a:-webkit-any-link {
   color: unset;
