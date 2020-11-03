@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Grid, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles({
     flexDirection: "row",
     background: "white",
     backgroundColor: "transparent",
-    boxShadow: "none",
+
     "& > *": {
       color: "grey",
       backgroundColor: "white",
@@ -48,10 +49,17 @@ const useStyles = makeStyles({
   },
   menu_btn: {
     textDecoration: "none",
-    padding: "0px 15px 0px 15px",
-  },
-  btn_grp: {
-    padding: "10px 0 10px 0",
+    padding: "10px 15px 10px 15px",
+    "&:hover": {
+      backgroundColor: "#ffaa3c",
+      borderColor: "#ffb43c",
+      boxShadow: "none",
+    },
+    "&:active": {
+      boxShadow: "none",
+      backgroundColor: "#ff8112",
+      borderColor: "#ffb43c",
+    },
   },
 });
 
@@ -84,8 +92,9 @@ function Header(props) {
           <AppBar position="static" className={classes.nav}>
             <ButtonGroup
               variant="contained"
-              className={classes.btn_grp}
               aria-label="contained primary button group"
+              size="small"
+              className={classes.btn_grp}
             >
               {routes.map((elem) => (
                 <Link

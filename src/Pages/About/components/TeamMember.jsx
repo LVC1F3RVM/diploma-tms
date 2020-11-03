@@ -14,13 +14,12 @@ const useStyles = makeStyles((theme) => ({
   },
   flex: {
     display: "flex",
-    padding: "0px",
+    padding: 0,
   },
   team_member_container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "0px 15px 0px 15px",
   },
 }));
 

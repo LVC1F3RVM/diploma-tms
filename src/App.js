@@ -17,12 +17,10 @@ library.add(fab, far, faCheckSquare, faCoffee, faUser, faEnvelope, faGlobe, faPe
 
 const useStyles = makeStyles({
   site_content: {
-    maxWidth: "auto",
   },
   container: {
     marginRight: "auto",
     marginLeft: "auto",
-    
     "& > *": {
       zoom: 1,
     },
@@ -30,6 +28,7 @@ const useStyles = makeStyles({
   paper_styles: {
     padding: "2em",
     color: "#84878d",
+    width: "auto",
   },
 });
 
@@ -45,8 +44,7 @@ function App() {
   const classes = useStyles();
 
   return (
-    <div>
-      <Grid className={classes.site_content}>
+    <div className={classes.site_content}>
       <Header routes={routes}></Header>
       <Grid
         container
@@ -75,7 +73,6 @@ function App() {
       </Paper>
       </Grid>
       <Footer></Footer>
-      </Grid>
     </div>
   );
 }

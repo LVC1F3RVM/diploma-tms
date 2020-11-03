@@ -3,7 +3,7 @@ import TeamMember from "./TeamMember";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  style_team: {
+  teammember_styles: {
     display: "flex",
     justifyContent: "space-between",
   },
@@ -76,10 +76,13 @@ function OurTeam() {
   const classes = useStyles();
 
   return (
-    <div className={classes.style_team}>
-      {data.map((elem) => (
-        <TeamMember person={elem} key={elem.id} />
-      ))}
+    <div>
+      <h3>Our Team</h3>
+      <div className={classes.teammember_styles}>
+        {data.map((elem) => (
+          <TeamMember person={elem} key={elem.id} />
+        ))}
+      </div>
     </div>
   );
 }

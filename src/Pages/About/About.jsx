@@ -2,6 +2,7 @@ import React from "react";
 import OurTeam from "./components/OurTeam";
 import AboutUsText from "./components/AboutUsText";
 import { makeStyles } from "@material-ui/styles";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
