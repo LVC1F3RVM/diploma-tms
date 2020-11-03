@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     display: "block",
-    width: "115px",
-    height: "40px",
+    width: "120px",
+    height: "38px",
     background: "#ffaa3c",
     paddingTop: "5px",
     textAlign: "center",
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "25px",
     textDecoration: "none",
     transition: ".3s ease",
+    "&:hover": {
+      backgroundColor: "#ffc06f",
+    },
   },
 }));
 
@@ -93,10 +96,10 @@ function JoinUsMainContent() {
                 <h3>Tempor Labore</h3>
                 <small>Ratione sequi nesciunt</small>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo
-                  commodi impedit ea beatae, in ipsa doloribus consequuntur ut,
-                  quod dolor dolore unde, esse eligendi autem nobis rem tempora
-                  recusandae laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Soluta aperiam quidem nobis rem exercitationem aut assumenda
+                  iure molestias eius accusantium, temporibus quis esse tempora.
+                  Laboriosam libero odio nobis, eligendi minus.
                 </p>
                 <a href="#" className={classes.button}>
                   Send a request

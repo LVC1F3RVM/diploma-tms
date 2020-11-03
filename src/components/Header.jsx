@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Grid, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
@@ -51,9 +50,9 @@ const useStyles = makeStyles({
     textDecoration: "none",
     padding: "10px 15px 10px 15px",
     "&:hover": {
+      boxShadow: "none",
       backgroundColor: "#ffaa3c",
       borderColor: "#ffb43c",
-      boxShadow: "none",
     },
     "&:active": {
       boxShadow: "none",
