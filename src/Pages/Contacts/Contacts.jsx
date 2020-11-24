@@ -4,6 +4,10 @@ import ContactsDetail from "../Contacts/components/ContactsDetail";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import { Grid } from "@material-ui/core";
 
+const container_styles = {
+  width: "100wv",
+};
+
 const form_container = {
   position: "relative",
   paddingLeft: "15px",
@@ -19,7 +23,7 @@ const map_container = {
   paddingRight: "15px",
   float: "left",
   marginLeft: "8.33%",
-  width: "650px",
+  width: "800px",
   minHeight: "1px",
 };
 
@@ -36,14 +40,14 @@ export class Contacts extends Component {
   };
   render() {
     return (
-      <Grid container>
+      <Grid container style={container_styles}>
         <Grid item style={form_container} xs={6} md={4}>
           <h3>Contacts</h3>
           <ContactsDetail />
           <Form count={"email"} />
         </Grid>
         <Grid item style={map_container} xs={8} md={7}>
-          <Grid style={map_styles}>
+          <div style={map_styles}>
             <Map
               google={this.props.google}
               zoom={8}
@@ -70,13 +74,16 @@ export class Contacts extends Component {
                 </div>
               </InfoWindow>
             </Map>
-          </Grid>
+          </div>
         </Grid>
       </Grid>
     );
   }
 }
 
+// export default GoogleApiWrapper({
+//   apiKey: "AIzaSyDvlGfatxoz0NdSRD9jycojcKJb4YfhuQs",
+// })(Contacts);
 export default GoogleApiWrapper({
   apiKey: "AIzaSyDvlGfatxoz0NdSRD9jycojcKJb4YfhuQs",
 })(Contacts);
