@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getShow } from "../../actions/shows.js";
+import { getShow } from "../../actions/shows.tsx";
 import ShowCard from "../../components/ShowCard";
 
 function Show(props) {

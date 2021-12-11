@@ -1,10 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { ReactChild, ReactNode } from "react";
+// import PropTypes from "prop-types";
 import { Grid, AppBar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
+import { map } from "rxjs/operators";
+import { ChildProcessWithoutNullStreams } from "child_process";
+import { JsxElement } from "typescript";
 
 const useStyles = makeStyles({
   site_header: {
@@ -62,8 +65,19 @@ const useStyles = makeStyles({
   },
 });
 
-function Header(props) {
-  const { routes } = props;
+type IProviderProps = React.ComponentType<Omit<any, string | number | symbol>>;
+
+interface Routes {
+  path: string;
+  name: string;
+  component: (props: any) => JSX.Element | IProviderProps;
+}
+
+interface IHeaderProps {
+  routes: Routes[];
+}
+
+export const Header = ({ routes }: IHeaderProps) => {
   const classes = useStyles();
 
   return (
@@ -87,13 +101,13 @@ function Header(props) {
             </Grid>
           </a>
         </Grid>
-        <Grid item className={classes.resetPadding}>
+        <Grid item /* className={classes.resetPadding} */>
           <AppBar position="static" className={classes.nav}>
             <ButtonGroup
               variant="contained"
               aria-label="contained primary button group"
               size="small"
-              className={classes.btn_grp}
+              /*className={classes.btn_grp}*/
             >
               {routes.map((elem) => (
                 <Link
@@ -110,16 +124,14 @@ function Header(props) {
       </Grid>
     </div>
   );
-}
-
-Header.propTypes = {
-  routes: PropTypes.arrayOf(
-    PropTypes.shape({
-      path: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      component: PropTypes.func,
-    })
-  ),
 };
 
-export default Header;
+// Header.propTypes = {
+//   routes: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       path: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       component: PropTypes.func,
+//     })
+//   ),
+// };

@@ -1,24 +1,25 @@
 import React from "react";
-import { withFormik } from "formik";
-import {
-  Input,
-  InputAdornment,
-  TextareaAutosize,
-  Button,
-} from "@material-ui/core";
+import { withFormik, FormikProps } from "formik";
+import { Input, InputAdornment, TextField, Button } from "@material-ui/core";
 import CreateIcon from "@material-ui/icons/Create";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Form = (props) => {
-  const {
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-    handleBlur,
-  } = props;
+interface FormProps {
+  name: string;
+  email: string;
+  url: string;
+  password?: string;
+  message?: string;
+}
 
+const Form = ({
+  values,
+  touched,
+  errors,
+  handleChange,
+  handleSubmit,
+  handleBlur,
+}: FormikProps<FormProps>) => {
   console.log(touched);
 
   const isErrors = !!Object.keys(errors).length;
@@ -68,16 +69,17 @@ const Form = (props) => {
           </InputAdornment>
         }
       />
-      <TextareaAutosize
+      <TextField
         id="input-with-icon-textfield"
         onBlur={handleBlur}
         name="message"
         onChange={handleChange}
         value={values.message}
         aria-label="minimum height"
-        rowsMin={7}
+        minRows={7}
         placeholder="message... "
         InputProps={{
+          //TODO: check what's wrong
           startAdornment: (
             <InputAdornment position="start">
               <CreateIcon />
@@ -85,7 +87,14 @@ const Form = (props) => {
           ),
         }}
       />
-      <Button onClick={handleSubmit} disabled={isErrors && touched.email}>
+      <Button
+        onClick={(v) =>
+          handleSubmit(
+            (v as unknown) as React.FormEvent<HTMLFormElement> | undefined
+          )
+        }
+        disabled={isErrors && touched.email}
+      >
         {" "}
         Send message{" "}
       </Button>
@@ -94,10 +103,10 @@ const Form = (props) => {
 };
 
 const MyEnhancedForm = withFormik({
-  mapPropsToValues: (props) => {
+  mapPropsToValues: ({ email }: FormProps) => {
     return {
       name: "",
-      email: props.email,
+      email: email,
       url: "",
       message: "",
     };
@@ -109,22 +118,20 @@ const MyEnhancedForm = withFormik({
       setSubmitting(false);
     }, 1000);
   },
-  validate: (values, props) => {
-    const errors = {};
-    if (!values.email) {
+  validate: ({ email }: FormProps) => {
+    const errors: Record<string, string> = {};
+    if (!email) {
       errors.email = "Required";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
       errors.email = "Invalid email address";
     }
     return errors;
   },
-  mapPropsToErrors: (props) => {
-    const errors = {};
-    if (!props.email) {
+  mapPropsToErrors: ({ email }: FormProps) => {
+    const errors: Record<string, string> = {};
+    if (!email) {
       errors.email = "Required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(props.email)) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
       errors.email = "Invalid email address";
     }
     return errors;

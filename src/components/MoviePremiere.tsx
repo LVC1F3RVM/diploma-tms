@@ -27,7 +27,23 @@ const useStyles = makeStyles({
   },
 });
 
-const getMonthName = (monthNumber) => {
+type IGetMonthNameProps = number;
+
+type IProviderProps = React.ComponentType<Omit<any, string | number | symbol>>;
+
+interface Movies {
+  date: Date;
+  description: string;
+  component: (props: any) => JSX.Element | IProviderProps;
+}
+
+interface IMoviePremiereProps {
+  premiereMonth: Date;
+  description: string;
+  movies: Movies[];
+}
+
+const getMonthName = (monthNumber: IGetMonthNameProps) => {
   switch (monthNumber) {
     case 0:
       return "January";
@@ -42,10 +58,13 @@ const getMonthName = (monthNumber) => {
   }
 };
 
-function MoviePremiere(props) {
+export const MoviePremiere = ({
+  premiereMonth,
+  description,
+  movies,
+}: IMoviePremiereProps) => {
   const classes = useStyles();
 
-  const { premiereMonth, description, movies } = props;
   return (
     <div>
       <Grid container>
@@ -72,6 +91,4 @@ function MoviePremiere(props) {
       </Grid>
     </div>
   );
-}
-
-export default MoviePremiere;
+};

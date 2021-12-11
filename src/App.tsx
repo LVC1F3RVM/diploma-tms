@@ -5,19 +5,33 @@ import { Paper } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 
 import { Home, About, JoinUs, Contacts, MovieReviews, Show } from "./Pages";
-import Header from "./components/Header";
+import { Header } from "./components/Header";
 import Footer from "./components/Footer/Footer";
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faEnvelope, faGlobe, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import { far, faUser } from '@fortawesome/free-regular-svg-icons';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCheckSquare,
+  faCoffee,
+  faEnvelope,
+  faGlobe,
+  faPencilAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { far, faUser } from "@fortawesome/free-regular-svg-icons";
 
-library.add(fab, far, faCheckSquare, faCoffee, faUser, faEnvelope, faGlobe, faPencilAlt);
+library.add(
+  fab,
+  far,
+  faCheckSquare,
+  faCoffee,
+  faUser,
+  faEnvelope,
+  faGlobe,
+  faPencilAlt
+);
 
 const useStyles = makeStyles({
-  site_content: {
-  },
+  site_content: {},
   container: {
     marginRight: "auto",
     marginLeft: "auto",
@@ -56,21 +70,21 @@ function App() {
         xl={6}
         className={classes.container}
       >
-      <Paper elevation={5} rounded className={classes.paper_styles}>
-        <Switch>
-          {routes.map((elem) => (
-            <Route
-              path={elem.path}
-              exact
-              component={elem.component}
-              key={elem.name}
-            />
-          ))}
-          <Route path={"/show/:id"} exact component={Show}></Route>
+        <Paper elevation={5} rounded className={classes.paper_styles}>
+          <Switch>
+            {routes.map((elem) => (
+              <Route
+                path={elem.path}
+                exact
+                component={elem.component}
+                key={elem.name}
+              />
+            ))}
+            <Route path={"/show/:id"} exact component={Show}></Route>
 
-          <Route> 404 not found </Route>
-        </Switch>
-      </Paper>
+            <Route> 404 not found </Route>
+          </Switch>
+        </Paper>
       </Grid>
       <Footer></Footer>
     </div>
